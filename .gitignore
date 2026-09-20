@@ -1,0 +1,22 @@
+# 1. CRITICAL: Secret API keys and environment variables
+.env
+*.env
+.env.*
+
+# 2. Virtual environment (do not track local binaries)
+.venv/
+venv/
+ENV/
+
+# 3. Python bytecode and compilation caches (like your tools/__pycache__)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 4. VS Code & Editor configuration folders (optional, but good practice)
+.vscode/
+.idea/
+
+# 5. OS temporary and metadata files
+.DS_Store
+Thumbs.db
