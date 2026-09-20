@@ -1,5 +1,8 @@
 # This is the control center that assembles the tools, configures Gemini, and executes the user query.
 
+# yeh pahle waali agent.py hai , ab isko yaha apan testing wagera ke purpose se use kar rhe hai , kyunki ab main.py hai control center
+
+
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
