@@ -1,4 +1,4 @@
-```markdown
+
 # Source Code Analyzer
 
 An agentic codebase exploration and analysis tool powered by **Google Gemini**, **LangChain / LangGraph**, **FastAPI**, and a **Vite + React + Tailwind CSS** frontend.  
