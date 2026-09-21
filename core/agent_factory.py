@@ -2,7 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from core.tool_registry import ToolRegistry
 
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemini-3.1-flash-lite"
 
 SYSTEM_INSTRUCTION = (
     "You are an expert codebase assistant with local filesystem tools.\n\n"

@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from core.git_service import GitService
 from core.tool_registry import ToolRegistry
 from core.agent_factory import create_codebase_agent, MODEL_NAME
+from tools.tree_tool import DirectoryTreeTool
 
 load_dotenv()
 
@@ -34,6 +35,11 @@ class ChatQueryRequest(BaseModel):
     repo_path: str
     selected_subfolder: Optional[str] = ""
     query: str
+
+class FolderTreeRequest(BaseModel):
+    repo_path: str
+    selected_subfolder: Optional[str] = "."
+
 
 def extract_message_text(content) -> str:
     if isinstance(content, str):
@@ -65,6 +71,20 @@ def get_tools():
     return {
         "tools": ToolRegistry.list_available_tools()
     }
+
+@app.post("/api/repo/tree")
+def get_folder_tree(req: FolderTreeRequest):
+    """Returns the visual directory tree for the selected focus folder."""
+    target_dir = Path(req.repo_path)
+    if req.selected_subfolder and req.selected_subfolder != ".":
+        target_dir = target_dir / req.selected_subfolder
+
+    if not target_dir.exists():
+        raise HTTPException(status_code=404, detail="Folder does not exist.")
+
+    tree_tool = DirectoryTreeTool(root_dir=str(target_dir))
+    tree_content = tree_tool.invoke({})
+    return {"tree": tree_content}
 
 @app.post("/api/repo/analyze")
 async def analyze_repo(req: RepoCloneRequest):

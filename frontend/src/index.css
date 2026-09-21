@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+body {
+  background-color: #09090b; /* zinc-950 */
+  color: #f4f4f5;            /* zinc-100 */
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom styles for rendered Markdown tables & code */
+.prose table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid #27272a; /* zinc-800 */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+.prose th {
+  border: 1px solid #27272a;           /* zinc-800 */
+  background-color: rgba(24, 24, 27, 0.9); /* zinc-900/90 */
+  padding: 0.5rem 0.75rem;
+  color: #67e8f9;                       /* cyan-300 */
+  font-weight: 600;
+}
+
+.prose td {
+  border: 1px solid rgba(39, 39, 42, 0.8); /* zinc-800/80 */
+  padding: 0.5rem 0.75rem;
+  color: #d4d4d8;                          /* zinc-300 */
+}
+
+.prose pre {
+  background-color: #09090b; /* zinc-950 */
+  border: 1px solid #27272a; /* zinc-800 */
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  background-color: #27272a; /* zinc-800 */
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: #67e8f9;            /* cyan-300 */
+  font-size: 0.75rem;
+  font-family: monospace;
+}
